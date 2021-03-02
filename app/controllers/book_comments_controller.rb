@@ -9,6 +9,8 @@ class BookCommentsController < ApplicationController
   end
 
   def destroy
+    # binding.pry
+    # a = '123'
     BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
     redirect_back(fallback_location: root_path)
   end
