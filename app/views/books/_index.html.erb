@@ -16,10 +16,12 @@
         </td>
         <td><%= link_to book.title, book_path(book), class: "book_#{book.id}" %></td>
         <td><%= book.body %></td>
-        
+
         <% if @favorites %>
           <td><%= render 'books/favorites', book: book %></td>
         <% end %>
+
+        <td><p>コメント数：<%= book.book_comments.count %></p></td>
 
       </tr>
     <% end %>
