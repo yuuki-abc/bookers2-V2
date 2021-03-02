@@ -8,7 +8,7 @@ class BookCommentsController < ApplicationController
     if comment.save
       redirect_back(fallback_location: root_path)
     else
-      flash[:alert] = "No blanks"
+      flash[:alert] = "error No blanks"
       redirect_back(fallback_location: root_path)
     end
   end
