@@ -45,8 +45,8 @@
       <div class="new-comment">
       <%= render 'layouts/flash', flash: flash %>
         <%= form_with(model:[@book, @book_comment], local: true) do |f| %>
-          <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに入力して下さい" %>
-          <%= f.submit "送信する" %>
+          <%= f.text_area :comment ,placeholder: "コメントをここに入力して下さい", size: "100%x6", class: 'form-control book_body' %>
+          <div><%= f.submit "送信する" %></div>
         <% end %>
       </div>
       <!--ここまで-->
