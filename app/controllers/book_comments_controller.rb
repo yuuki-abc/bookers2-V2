@@ -1,4 +1,5 @@
 class BookCommentsController < ApplicationController
+  before_action :ensure_correct_book_comment, only: [:destroy]
 
   def create
     book = Book.find(params[:book_id])
@@ -9,16 +10,21 @@ class BookCommentsController < ApplicationController
   end
 
   def destroy
-    # binding.pry
-    # a = '123'
     BookComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
     redirect_back(fallback_location: root_path)
   end
 
    private
 
-    def book_comment_params
-      params.require(:book_comment).permit(:comment)
-    end
+      def book_comment_params
+        params.require(:book_comment).permit(:comment)
+      end
+
+      def ensure_correct_book_comment
+        book = Book.find(params[:book_id])
+        unless book.user == current_user
+        redirect_to books_path
+      end
+  end
 
 end
