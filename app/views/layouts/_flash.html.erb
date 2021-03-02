@@ -1,0 +1,11 @@
+<% if flash[:notice] %>
+  <div class="text-primary mt-2">
+    <p class="flash-message text-success mb-1"><%= flash[:notice] %></p>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div class="text-danger mt-2">
+    <p class="flash-message text-error mb-1"><%= flash[:alert] %></p>
+  </div>
+<% end %>
