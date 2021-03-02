@@ -5,7 +5,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = @user.books
     @book = Book.new
-    @favorites = false
+    @on_favorites = false
   end
 
   def index

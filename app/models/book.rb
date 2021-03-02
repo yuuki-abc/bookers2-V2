@@ -7,6 +7,8 @@ class Book < ApplicationRecord
 	def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+  # favoritesのデータベースに存在するuser_idカラムの各値が、
+  # 引数として渡されたuserのidと一致するかどうかを調べてる。
 
 	validates :title, presence: true
 	validates :body, presence: true, length: {maximum: 200}

@@ -17,7 +17,7 @@
         <td><%= link_to book.title, book_path(book), class: "book_#{book.id}" %></td>
         <td><%= book.body %></td>
 
-        <% if @favorites %>
+        <% if @on_favorites %>
           <td><%= render 'books/favorites', book: book %></td>
         <% end %>
 
